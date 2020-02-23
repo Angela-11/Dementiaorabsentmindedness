@@ -4,7 +4,6 @@
  
 THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
- 
 Authors in chronological order of contribution:
 Tim Riedel
 Angela Owe
@@ -17,7 +16,7 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-This code is expected to produce the probability of symptoms being due to either the cold or allergies.
+This code is expected to produce the probability of symptoms being due to either dementia or absent-mindedness.
 
 Known Issues:
 Not medically accurate. 
@@ -26,78 +25,79 @@ https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
 -->
 	
-   <head> 
+<head> 
       <title>Hello World</title>  
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="apple-mobile-web-app-capable" content="yes">
       <link rel="stylesheet" href="w3.css">
       <link rel="stylesheet" href="w3-colors-flat.css">
-   </head> 
+</head> 
 
 
 <script>
-	//variables ensure the calculation starts with the click of the buttons for each respective illness
-        var allergy_count = 0;
-        var cold_count = 0;
-	//this functions counts the answers that are symptoms of allergy
-        function allergyAdd(){
-            allergy_count = allergy_count + 1;
-		alert(allergy_count);
+	//variables ensure the calculation starts with the click of the buttons for either dementia or absent-mindedness, respectively
+        var dementia_count = 0;
+        var am_count = 0;
+	//this functions counts the answers that are symptoms of dementia
+        function dementiaAdd(){
+            dementia_count = dementia_count + 1;
+		alert(dementia_count);
         }
-	//this functions counts the answers that are symptoms of cold
-        function coldAdd(){
-            cold_count = cold_count + 1;
-		alert(cold_count);		
+	//this functions counts the answers that indicate simple absent-mindedness
+        function amAdd(){
+            am_count = am_count + 1;
+		alert(am_count);		
         }
-	//this functions calculates the probability of the symptoms being either a cold or allergy with the .innerHTML outputing the results on the results page
+	//this functions calculates the probability of the symptoms being either dementia or absent-mindedness with the .innerHTML outputing the results on the results page
         function percentages(){
-		var allergyPercent  = (allergy_count / (4)) * 100;
-		var coldPercent = (cold_count / (4)) * 100;
+		var dementiaPercent  = (dementia_count / (4)) * 100;
+		var amPercent = (am_count / (4)) * 100;
 		var resultText = document.getElementById("results");
-            	resultText.innerHTML = "Probability it is allergies = " + allergyPercent + "% <br>Probability it is a cold = " + coldPercent + "%";
+            	resultText.innerHTML = "Probability it is dementia = " + dementiaPercent + "% <br>Probability it is a cold = " + amPercent + "%";
         }
-	
 </script>
 
-
-<!-- This produces the pages for each question and content -->
+<!-- This produces the pages for each question and content along with the resizeable image-->
 <style>	
-.body {
-     margin: 0em;
-}
-
-.page {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: -100vw;
-    overflow-y: auto;
-    z-index: 0;
-    background-color: hsl(0,0%,100%);
-}
-
-  .page:target {
-    left: 0vw;
-    z-index: 1;
-}
+	.body {
+		margin: 0em;
+	}
+	.page {
+		width: 100vw;
+		height: 100vh;
+		position: fixed;
+		top: 0;
+		left: -100vw;
+		overflow-y: auto;
+		z-index: 0;
+		background-color: hsl(0,0%,100%);
+	}
+	.page:target {
+		left: 0vw;
+		z-index: 1;
+	}
+		img, object{
+		max-height:90%;
+		max-width:90%;
+	}
 </style>
+
 <!-- This produces the introduction page -->
 <body>
 <!-- This produces the introduction's title -->
 <div id="header" class="w3-container w3-flat-carrot">
-	<h1>Cold or Allergies?</h1>
+	<h1>Dementia or Absent-Mindedness?</h1>
 </div>
 <!-- This produces the introduction content -->
 <div id="content" class="w3-container">
-	<p>Are you feeling like you might have a cold but wonder if it is allergies. Answer a few short questions to find out!</p>
+	<p>Are you feeling like you or someone might have dementia or is simply absent-minded? Answer a few short questions to find out!</p>
 	<!-- This produces the button -->
 	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
-	
 	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
- 	
-	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
-<!-- This produces the first question -->
+ 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+	<img src="https://aniportalimages.s3.amazonaws.com/media/details/14606667655_3a30c42b92_b_kFj15iu.jpg" alt="grandma looking for glasses that she's wearing">
+	
+<!-- This produces the page for the first question -->
 <div class="page" id="one">
 	<!-- This produces the header of the first question -->
 	<div id="header" class="w3-container w3-flat-carrot">
@@ -105,12 +105,13 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	<!-- This produces the content of the first question -->
     	<div id="content" class="w3-container">
-        	<p>Are your eyes watery or itchy?</p>  
+        	<p>Does the patient confuse names of family members or friends?</p>  
 		<!-- This produces the yes or no buttons that will count the results -->
-		<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
-         	<a href="#two"  onclick="coldAdd();" class="w3-btn w3-black">No</a>
+		<a href="#two"  onclick="dementiaAdd();" class="w3-btn w3-black">Yes</a>
+         	<a href="#two"  onclick="amAdd();" class="w3-btn w3-black">No</a>
     	</div>
 </div>
+
 <!-- This produces the page with the second question -->
 <div class="page" id="two">
 	<!-- This produces the second question's title -->
@@ -119,12 +120,13 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	<!-- This produces the conetent of the second question -->
 	<div id="content" class="w3-container">
-		<p>Do you have a fever?</p>
+		<p>Can the patient drive fine excluding physical limitations?</p>
 		<!-- This produces the yes or no buttons that will count the results -->
-		<a href="#three"  onclick="coldAdd();" class="w3-btn w3-black">Yes</a>
-		<a href="#three"  onclick="allergyAdd();" class="w3-btn w3-black"> No</a>
+		<a href="#three"  onclick="amAdd();" class="w3-btn w3-black">Yes</a>
+		<a href="#three"  onclick="dementiaAdd();" class="w3-btn w3-black">No</a>
 	</div>
-</div>	
+</div>
+
 <!-- This produces the page with the third question -->
 <div class="page" id="three">
 	<!-- This produces the third question's title -->
@@ -133,12 +135,13 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	<!-- This produces the content of the third question -->
 	<div id="content" class="w3-container">
-		<p>Do you have a sore throat?</p>
+		<p>Does the patient have a functioning sense of direction?</p>
 		<!-- This produces the yes or no buttons that will count the results -->
-		<a href="#four"  onclick="coldAdd();" class="w3-btn w3-black">Yes</a>
-		<a href="#four"  onclick="allergyAdd();" class="w3-btn w3-black"> No</a>
+		<a href="#four"  onclick="amAdd();" class="w3-btn w3-black">Yes</a>
+		<a href="#four"  onclick="dementiaAdd();" class="w3-btn w3-black">No</a>
 	</div>
 </div>
+
 <!-- This produces the page with the fourth question -->
 <div class="page" id="four">
 	<!-- This produces the fourth question's title -->
@@ -147,12 +150,13 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	<!-- This produces the content of the fourth question -->
 	<div id="content" class="w3-container">
-		<p>Are your symptoms seasonal or chronic?</p>
+		<p>Does the patient misplace objects so that he or she cannot find them?</p>
 		<!-- This produces the yes or no buttons that will count the results -->
-		<a href="#five"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes</a>
-         	<a href="#five"  onclick="coldAdd();" class="w3-btn w3-black">No</a>
+		<a href="#five"  onclick="dementiaAdd();" class="w3-btn w3-black">Yes</a>
+         	<a href="#five"  onclick="amAdd();" class="w3-btn w3-black">No</a>
 	</div>
 </div>
+
 <!-- This produces the last page to show that the survey is over -->
 <div class="page" id="five">
 	<!-- This produces the Finish title -->
@@ -166,6 +170,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 		<a href="#last" onclick="percentages();" class="w3-btn w3-grey w3-round">Results</a>
 	</div>
 </div>
+
 <!-- This produces the result page to show the probabilities -->
 <div class="page" id="last">
 	<!-- This produces the results title -->
@@ -178,6 +183,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 		<p>Be Healthy!</p>
 	</div>
 </div>
+
 <!-- This produces footer at the bottom of the page to indicate it's for DIY -->
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
